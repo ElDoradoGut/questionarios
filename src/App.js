@@ -108,16 +108,16 @@ function App() {
   ]
 
   const nombres = [
-    "Tecnología y Sociedad",
-    "Ciencia y Medio Ambiente",
-    "Historia y Política",
-    "Economía y Finanzas",
-    "Cultura y Sociedad",
-    "Ciencia y Tecnología",
-    "Psicología y Salud Mental",
-    "Filosofía y Ética",
-    "Educación y Aprendizaje",
-    "Deportes y Salud"
+    ["Tecnología y Sociedad", technologiaSociedad],
+    ["Ciencia y Medio Ambiente",medioAmbiente],
+    ["Historia y Política", historiaPolitica],
+    ["Economía y Finanzas", economiaFinanzas],
+    ["Cultura y Sociedad", culturaSociedad],
+    ["Ciencia y Tecnología", cienciaTechnologia],
+    ["Psicología y Salud Mental", psicologia],
+    ["Filosofía y Ética", filosofiaEtica],
+    ["Educación y Aprendizaje", educacionAprendizaje],
+    ["Deportes y Salud", deportesSalud]
   ]
 
   return (
@@ -127,19 +127,19 @@ function App() {
         id="uncontrolled-tab-example"
         className="mb-3">
         {
-          nombres.map((nombre, k) => (
-            <Tab eventKey={nombre} title={nombre}>
+          nombres.map((item, k) => (
+            <Tab eventKey={item[0]} title={item[0]}>
               <Card className='mt-3'>
                 <Card.Body>
                   <Card.Title>
-                    {nombre}
+                    {item[0]}
                   </Card.Title>
                   <Form>
                     {
-                      technologiaSociedad.map((value, i) => (
+                      item[1].map((value, i) => (
                         <Form.Group className='mt-3'>
                           <Form.Label>{value}</Form.Label>
-                          <Form.Control onChange={onChange} name={`q${k}-${i}`} placeholder='Ingresa tu respuesta' />
+                          <Form.Control onChange={onChange} name={`q${k}-${i}`} id={`q${k}-${i}`} placeholder='Ingresa tu respuesta' />
                         </Form.Group>
                       ))
                     }
